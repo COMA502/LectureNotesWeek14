@@ -12,5 +12,13 @@ public class Main {
         //Create our context/IOC container and give it the configuration
         ApplicationContext context =
                 new AnnotationConfigApplicationContext(Main.class);
+
+        //Get the restaurant from Spring container
+        Restaurant restaurant = context.getBean(Restaurant.class);
+        //Traditionally we would have new up the Restaurant instead creating a
+        //tighter coupling
+        //Restaurant restaurant = new Restaurant();//any changes would require change...
+
+        restaurant.open();
     }
 }
